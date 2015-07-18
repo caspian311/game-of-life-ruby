@@ -1,13 +1,15 @@
+require 'console.rb'
+require 'board.rb'
 
 describe :Console do
-   describe :show do
+   describe '#show' do
       it 'should display an empty board' do
          output_mock = spy('output')
 
          console = Console.new(output_mock)
          console.show(Board.new 3)
 
-         expect(output_mock).to have_received(:print).with("|   |\n|   |\n|   |\n\n")
+         expect(output_mock).to have_received(:print).with("   \n   \n   \n\n")
       end
 
       it 'should display a full board' do
@@ -22,7 +24,7 @@ describe :Console do
          console = Console.new(output_mock)
          console.show(board)
 
-         expect(output_mock).to have_received(:print).with("|**|\n|**|\n\n")
+         expect(output_mock).to have_received(:print).with("**\n**\n\n")
       end
    end
 end

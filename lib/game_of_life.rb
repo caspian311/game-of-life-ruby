@@ -11,9 +11,12 @@ class GameOfLife
    def play(iterations)
       board = @initial_board
       @console.show board
+
       (iterations - 1).times do 
          board = BoardTransformer.new.update board
          @console.show board
       end
+
+      @console.done
    end
 end

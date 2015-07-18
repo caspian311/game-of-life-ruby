@@ -17,14 +17,22 @@ describe :GameOfLife do
          it 'should display initial positions first' do
             @testObject.play 1
 
-            expect(@output).to have_received(:print).with("|   |\n|***|\n|   |\n\n")
+            expect(@output).to have_received(:print).with("   \n***\n   \n\n")
          end
 
          it 'should display updated values next' do
             @testObject.play 2
 
-            expect(@output).to have_received(:print).once.ordered.with("|   |\n|***|\n|   |\n\n")
-            expect(@output).to have_received(:print).once.ordered.with("| * |\n| * |\n| * |\n\n")
+            expect(@output).to have_received(:print).once.ordered.with("   \n***\n   \n\n")
+            expect(@output).to have_received(:print).once.ordered.with(" * \n * \n * \n\n")
+         end
+
+         it 'should signal the output that we finished' do
+            emptyBoard = Board.new(1)
+            @testObject = GameOfLife.new(@output, emptyBoard)
+            @testObject.play 1
+
+            expect(@output).to have_received(:done).once
          end
       end
    end
