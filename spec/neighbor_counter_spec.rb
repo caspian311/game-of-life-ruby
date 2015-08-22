@@ -32,7 +32,7 @@ describe :NeighborCounter do
          end
       end
 
-      describe 'wft' do
+      describe 'wtf' do
          it 'shouldnt wtf' do
             board = Board.new(2)
             board.revive 0, 0
