@@ -189,6 +189,18 @@ describe :Board do
          expect(board.to_s).to eq('board of size 2 with cells: ')
       end
    end
+
+   describe 'wtf' do
+      it 'shouldnt wtf' do
+         board = Board.new(2)
+         board.revive 0, 0
+         board.revive 0, 1
+         board.revive 1, 0
+         board.revive 1, 1
+
+         expect(board.is_alive?(-1, -1)).to eq(false)
+      end
+   end
 end
 
 

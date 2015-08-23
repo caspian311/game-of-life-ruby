@@ -6,9 +6,7 @@ class BoardTransformer
 
       previous_board.size.times do |x|
          previous_board.size.times do |y|
-            if should_revive? previous_board, x, y
-               new_board.revive x, y
-            end
+            new_board.revive x, y if should_revive? previous_board, x, y
          end
       end
 
@@ -17,7 +15,7 @@ class BoardTransformer
 
    private
    def should_revive?(previous_board, x, y)
-      number_of_neighbors = NeighborCounter.new.count_neighbors previous_board, x, y
+      number_of_neighbors = NeighborCounter.count_neighbors previous_board, x, y
       if number_of_neighbors == 3
          return true
       end
