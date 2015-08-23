@@ -10,7 +10,7 @@ describe :BoardTransformer do
          board.revive 1, 1
          board.revive 2, 1
 
-         transformed_board = BoardTransformer.new.update board
+         transformed_board = BoardTransformer.update board
 
          expected_board = Board.new 3
          expected_board.revive 1, 0
@@ -27,7 +27,7 @@ describe :BoardTransformer do
          board.revive 2, 1
          board.revive 2, 2
 
-         transformed_board = BoardTransformer.new.update board
+         transformed_board = BoardTransformer.update board
 
          expected_board = Board.new 4
          expected_board.revive 1, 1
@@ -45,7 +45,7 @@ describe :BoardTransformer do
          board.revive 0, 0
          board.revive 0, 1
 
-         transformed_board = BoardTransformer.new.update board
+         transformed_board = BoardTransformer.update board
 
          expect(transformed_board.is_alive? 0, 0).to eq(false)
       end
@@ -56,7 +56,7 @@ describe :BoardTransformer do
          board.revive 0, 1
          board.revive 1, 0
 
-         transformed_board = BoardTransformer.new.update board
+         transformed_board = BoardTransformer.update board
 
          expect(transformed_board.is_alive? 0, 0).to eq(true)
       end
@@ -69,7 +69,7 @@ describe :BoardTransformer do
          board.revive 1, 2
          board.revive 2, 1
 
-         transformed_board = BoardTransformer.new.update board
+         transformed_board = BoardTransformer.update board
 
          expect(transformed_board.is_alive? 1, 1).to eq(false)
       end
@@ -80,7 +80,7 @@ describe :BoardTransformer do
          board.revive 1, 0
          board.revive 1, 2
 
-         transformed_board = BoardTransformer.new.update board
+         transformed_board = BoardTransformer.update board
 
          expect(transformed_board.is_alive? 1, 1).to eq(true)
       end

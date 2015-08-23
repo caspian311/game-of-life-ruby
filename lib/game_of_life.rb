@@ -13,7 +13,7 @@ class GameOfLife
       @console.show board
 
       (iterations - 1).times do 
-         board = BoardTransformer.new.update board
+         board = BoardTransformer.update board
          @console.show board
       end
 

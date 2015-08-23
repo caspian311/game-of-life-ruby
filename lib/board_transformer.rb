@@ -1,7 +1,7 @@
 require_relative 'neighbor_counter.rb'
 
 class BoardTransformer
-   def update(previous_board)
+   def self.update(previous_board)
       new_board = Board.new previous_board.size
 
       previous_board.size.times do |x|
@@ -14,7 +14,7 @@ class BoardTransformer
    end
 
    private
-   def should_revive?(previous_board, x, y)
+   def self.should_revive?(previous_board, x, y)
       number_of_neighbors = NeighborCounter.count_neighbors previous_board, x, y
       if number_of_neighbors == 3
          return true
